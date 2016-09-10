@@ -1,2 +1,12 @@
 ---
 - hosts: web
+  gather_facts: no
+  # remote_user: xxxで実行ユーザー指定可能(absilbe実行ユーザと同じであれば不要)
+  become: yes
+
+  roles:
+    - {role: common, tags: [common]}
+  #  - {role: mariadb, tags: [mariadb]}
+  #  - {role: nginx, tags: [nginx]}
+  #  - {role: php-fpm, tags: [php-fpm]}
+  #  - {role: wordpress, tags: [wordpress]}
